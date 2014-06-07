@@ -1,0 +1,23 @@
+<section data-ng-controller="IndexController">
+    <div data-ng-show="!global.authenticated">
+      <h1 mean-token="'home-default'">You have to log in to do anything...</h1>
+    </div>
+    <div data-ng-show="global.authenticated">
+      <h1>Lets do this...</h1>
+      {{nest.target_temperature}}
+      {{nest.current_temperature}}
+
+      <button ng-click="nestUp()">
+        Up
+      </button>
+      <button ng-click="nestDown()">
+        Down
+      </button>
+      <button ng-click="allAway()">
+        Away
+      </button>
+      <button ng-click="allHome()">
+        Home
+      </button>
+    </div>
+</section>
