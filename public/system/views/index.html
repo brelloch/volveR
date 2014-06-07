@@ -3,39 +3,58 @@
       <h1 mean-token="'home-default'">You have to log in to do anything...</h1>
     </div>
     <div data-ng-show="global.authenticated">
-      <h1>volveR home control</h1>
+      <img style="height: 150px; margin-left:40%;" src="/public/system/assets/img/volverlogo.png"/>
 
-      <div data-ng-show="users != undefined && users != null">
-        <h3>Users</h3>
-        <ul class="example-animate-container">
-          <li class="animate-repeat" ng-repeat="user in users">
-            {{user.name}} is currently {{user.status}}.
-          </li>
-        </ul>
+      <div class="panel panel-warning" data-ng-show="users != undefined && users != null">
+        <div class="panel-heading">
+            <h3 class="panel-title">Users</h3>
+        </div>
+        <div style="padding: 5px 5px 5px 5px;">
+          <ul class="example-animate-container">
+            <li class="animate-repeat" ng-repeat="user in users">
+              {{user.name}} is currently {{user.status}}.
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <div data-ng-show="nest != undefined && nest != null">
-        <h3>Nest</h3>
-        <button data-ng-show="currentStatus === 'home'" ng-click="allAway()">
-          Set yourself as away.
-        </button>
-        <button data-ng-show="currentStatus === 'away'" ng-click="allHome()">
-          Set yourself as home.
-        </button>
-        <br/><br/>
-        Target Temperature: {{nest.target_temperature}}<br>
-        Current Temperature: {{nest.current_temperature}}
-        <br/><br/>
+      <div class="panel panel-warning" data-ng-show="nest != undefined && nest != null">
+        <div class="panel-heading">
+            <h3 class="panel-title">Nest</h3>
+        </div>
+        <div style="padding: 5px 5px 5px 5px;">
+          <button class="btn btn-warning" data-ng-show="currentStatus === 'home'" ng-click="allAway()">
+            Set yourself as away.
+          </button>
+          <button class="btn btn-warning" data-ng-show="currentStatus === 'away'" ng-click="allHome()">
+            Set yourself as home.
+          </button>
+          <br/><br/>
+          Target Temperature: {{nest.target_temperature}}<br>
+          Current Temperature: {{nest.current_temperature}}
+          <br/><br/>
 
-        <button ng-click="nestUp()">
-          Up 1 degree
-        </button>
-        <button ng-click="nestDown()">
-          Down 1 degree
-        </button>
+          <button class="btn btn-warning" ng-click="nestUp()">
+            Up 1 degree
+          </button>
+          <button class="btn btn-warning" ng-click="nestDown()">
+            Down 1 degree
+          </button>
+        </div>
+      </div>
 
-        <h3>Wemo</h3>
-        coming soon...
+      <div class="panel panel-warning" data-ng-show="nest != undefined && nest != null">
+        <div class="panel-heading">
+            <h3 class="panel-title">Wemo</h3>
+        </div>
+        <div style="padding: 5px 5px 5px 5px;">
+          <button class="btn btn-warning" ng-click="wemoOn()">
+            Turn On
+          </button>
+          <button class="btn btn-warning" ng-click="wemoOff()">
+            Turn Off
+          </button>
+        </div>
       </div>
       <br/><br/>
     </div>

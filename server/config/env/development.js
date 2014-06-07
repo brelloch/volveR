@@ -2,6 +2,7 @@
 
 module.exports = {
     db: 'mongodb://atthackathon:temppass@kahana.mongohq.com:10001/ATT_Hackathon',
+    port: 80,
     app: {
         name: 'volveR'
     },

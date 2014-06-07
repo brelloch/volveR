@@ -41,6 +41,16 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
             $scope.nest = nestData;
         });
     };
+    $scope.wemoOn = function() {
+        api.wemoOn().then(function(nestData) {
+            //$scope.nest = nestData;
+        });
+    };
+    $scope.wemoOff = function() {
+        api.wemoOff().then(function(nestData) {
+            //$scope.nest = nestData;
+        });
+    };
     $scope.allAway = function() {
         $scope.global.user.status = "away";
         $scope.currentStatus = $scope.global.user.status;

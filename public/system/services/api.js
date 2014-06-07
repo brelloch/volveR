@@ -59,6 +59,22 @@ angular.module('mean.system').factory('api', function($http) {
                             return result.data;
                         });
         },
+        wemoOn: function() {
+             //return the promise directly.
+             return $http.get('/wemo_on')
+                       .then(function(result) {
+                            //resolve the promise as the data
+                            return result.data;
+                        });
+        },
+        wemoOff: function() {
+             //return the promise directly.
+             return $http.get('/wemo_off')
+                       .then(function(result) {
+                            //resolve the promise as the data
+                            return result.data;
+                        });
+        },
         getUsers: function() {
              //return the promise directly.
              return $http.get('/getallusers')
