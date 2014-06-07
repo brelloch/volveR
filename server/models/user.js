@@ -46,7 +46,7 @@ var UserSchema = new Schema({
         default: 'local'
     },
     salt: String,
-    home: String,
+    status: String,
     facebook: {},
     twitter: {},
     github: {},

@@ -3,21 +3,40 @@
       <h1 mean-token="'home-default'">You have to log in to do anything...</h1>
     </div>
     <div data-ng-show="global.authenticated">
-      <h1>Lets do this...</h1>
-      {{nest.target_temperature}}
-      {{nest.current_temperature}}
+      <h1>volveR home control</h1>
 
-      <button ng-click="nestUp()">
-        Up
-      </button>
-      <button ng-click="nestDown()">
-        Down
-      </button>
-      <button ng-click="allAway()">
-        Away
-      </button>
-      <button ng-click="allHome()">
-        Home
-      </button>
+      <div data-ng-show="users != undefined && users != null">
+        <h3>Users</h3>
+        <ul class="example-animate-container">
+          <li class="animate-repeat" ng-repeat="user in users">
+            {{user.name}} is currently {{user.status}}.
+          </li>
+        </ul>
+      </div>
+
+      <div data-ng-show="nest != undefined && nest != null">
+        <h3>Nest</h3>
+        <button data-ng-show="currentStatus === 'home'" ng-click="allAway()">
+          Set yourself as away.
+        </button>
+        <button data-ng-show="currentStatus === 'away'" ng-click="allHome()">
+          Set yourself as home.
+        </button>
+        <br/><br/>
+        Target Temperature: {{nest.target_temperature}}<br>
+        Current Temperature: {{nest.current_temperature}}
+        <br/><br/>
+
+        <button ng-click="nestUp()">
+          Up 1 degree
+        </button>
+        <button ng-click="nestDown()">
+          Down 1 degree
+        </button>
+
+        <h3>Wemo</h3>
+        coming soon...
+      </div>
+      <br/><br/>
     </div>
 </section>

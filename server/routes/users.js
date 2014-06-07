@@ -2,6 +2,9 @@
 
 // User routes use users controller
 var users = require('../controllers/users');
+var mongoose = require('mongoose'),
+    User = mongoose.model('User');
+var util = require('util');
 
 module.exports = function(app, passport) {
 
@@ -94,5 +97,15 @@ module.exports = function(app, passport) {
         .get(passport.authenticate('linkedin', {
             failureRedirect: '#!/login'
         }), users.authCallback);
+
+    app.route('/getallusers').get(function(req, res) {
+        User.find({}, function (err, users) {
+            var userMap = {};
+            users.forEach(function(user) {
+                userMap[user._id] = user;
+            });
+            res.jsonp(userMap);
+        });
+    });
 
 };
